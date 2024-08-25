@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+{% extends 'main.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Clientes</title>
+</head>
+
+
+{% block container %}
+
+<body>
+    <div class="row">
+    <div class="col-md-12">
+    <h1>Listado de Clientes</h1>
+    <form method="GET" action="/listado">
+        <label for="filtroNombre">Filtrar por nombre:</label>
+        <input type="text" id="filtroNombre" name="nombre">
+        <label for="filtroDni">Filtrar por DNI:</label>
+        <input type="text" id="filtroDni" name="dni">
+        <button type="submit">Filtrar</button>
+    </form>
+    <br>
+    <table id="data" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.dni }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+    <br>
+    <a href="/alta">Registrar nuevo cliente</a>
+</body>
+{% endblock %}
+
+</html>

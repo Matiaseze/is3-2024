@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+{% extends './main.html' %}
+
+{% block titulo %}
+Alta de Cliente
+{% endblock %}
+
+{% block content %}
+<div>
+    <h3>Alta de Cliente</h3>
+
+    <!-- Formulario -->
+    <form action="/alta" method="post">
+        <div class="mb-3">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni" name="dni" pattern="^\d{1,8}$" title="Debe ser un número de hasta 8 dígitos" maxlength="8" required>
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1\s]+$" title="Solo se permiten letras y espacios" required>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1\s]+$" title="Solo se permiten letras y espacios" required>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" pattern="^[0-9-]+$" title="Solo se permiten números y guiones" placeholder="Ej: 02804112233"required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="Debe tener el formato usuario@dominio.com" placeholder="usuario@dominio.com">
+        </div>
+        <button type="submit" class="btn btn-secondary">Guardar</button>
+    </form>
+    <br>
+    <a href="/listado">Ver listado de clientes</a>
+</div>
+{% endblock %}
+
+</html>
