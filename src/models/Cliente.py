@@ -31,5 +31,40 @@ class ClienteModel(db.Model):
             'telefono' : self.telefono,
         }
 
-    def get_cliente(self):
-        return ClienteModel
+
+
+    @classmethod
+    def get_clientes(self):
+        try:
+            return self.query.all()
+        except Exception as ex:
+            raise Exception(ex)
+        
+    @classmethod
+    def get_cliente(self, id):
+        try:
+            return self.query.get(id)
+        except Exception as ex:
+            raise Exception(ex)
+        
+    @classmethod
+    def añadir_cliente(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+        except Exception as ex:
+            raise Exception(ex)
+        
+
+    # @classmethod
+    # def actualizar_cliente(self, nombre=None, apellido=None, email=None, telefono=None):
+    #     try:
+    #         if nombre:
+    #             self.nombre = nombre
+    #         if apellido:
+    #             self.apellido = apellido
+    #         if email:
+    #             self.email = email
+    #         if telefono:
+    #             self.telefono = telefono
+    #     except:

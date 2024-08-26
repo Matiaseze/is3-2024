@@ -9,17 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
     {% block customCSS %}
-
     {% endblock %}
-
 </head>
 
-<header>
-    {% block header %}{% endblock %}
-</header>
-
-
 <body>
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
+    
     {% block message %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -31,11 +29,28 @@
             </div>
         {% endif %}
     {% endwith %}
-
     {% endblock %}
-    {% block container %}
     
-    {% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        {% block sidebar %}
+                        {% endblock %}
+                    </ul>
+                </div>
+            </nav>
+            
+            <main role="main" class="col-md-6">
+                {% block container %}
+                {% endblock %}
+            </main>
+            <div class="col-md-3 d-none d-md-block bg-light">
+
+            </div>
+        </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

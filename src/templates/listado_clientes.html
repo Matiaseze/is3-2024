@@ -13,7 +13,7 @@
 <body>
     <div class="row">
     <div class="col-md-12">
-    <h1>Listado de Clientes</h1>
+    <h2>Listado de Clientes</h2>
     <form method="GET" action="/listado">
         <label for="filtroNombre">Filtrar por nombre:</label>
         <input type="text" id="filtroNombre" name="nombre">
@@ -30,6 +30,7 @@
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>DNI</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +41,12 @@
                 <td>{{ cliente.email }}</td>
                 <td>{{ cliente.telefono }}</td>
                 <td>{{ cliente.dni }}</td>
+                <td>
+                    <a href="">
+                    <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Menú" width="30" height="30">
+                    </a>
+                </td>
+                
             </tr>
             {% endfor %}
         </tbody>
