@@ -9,20 +9,20 @@ Propuesta 1
 {% endblock %}
 
 {% block header %}
-<nav class="navbar navbar-light" style="background-color: #314553;">
-    <div class="container">
-        <div class="col-md-3">
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #314553;">
+    <div class="container-fluid"> 
+        <div class="col-3">
 
         </div>
-        <div class="col-md-6 d-flex justify-content-center">
-            <a class="navbar-brand" href="/">
-                <img src="{{ url_for('static', filename='img/menu.png') }}" alt="Menú" width="30" height="30">
-                Propuesta 1
-            </a>
+        <div class="col-6 d-flex justify-content-center">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='img/menu.png') }}" alt="Menú" width="30" height="30">
+                    Propuesta 1
+                </a>
         </div>
-        <div class="col-md-2 d-flex justify-content-arround">
+        <div class="col-3 d-flex justify-content-arround">
             <a href="#">
-                <img src="{{ url_for('static', filename='img/user-interface.png') }}" alt="User" width="30" height="30" style="margin-right: 15px">
+                <img src="{{ url_for('static', filename='img/user-interface.png') }}" alt="User" width="30" height="30" style="margin-right: 15px;margin-left: 15px">
             </a>
             <a href="#">
                 <img src="{{ url_for('static', filename='img/logout.png') }}" alt="Cerrar sesión" width="30" height="30" style="margin-left: 15px">

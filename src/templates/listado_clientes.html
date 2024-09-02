@@ -42,7 +42,7 @@
                 <td>{{ cliente.telefono }}</td>
                 <td>{{ cliente.dni }}</td>
                 <td>
-                    <a href="">
+                    <a href="{{ url_for('cliente_bp.eliminar_cliente', id=cliente.id) }}">
                     <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Menú" width="30" height="30">
                     </a>
                 </td>
